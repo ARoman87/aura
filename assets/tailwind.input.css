@@ -1,29 +1,23 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-
-
 @theme {
-  /* --color-primary: #000000;
-  --color-background: #FFFFFF; */
+  --color-primary: #d4ff3a;
+  --color-background: #000000;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-oswald: "Oswald", sans-serif;
 }
 
 @layer base {
-  /* body {
-    @apply bg-white font-inter
-  } */
-
+  body {
+    @apply bg-background font-montserrat text-white;
+  }
 }
 
 .container {
-  @apply max-w-7xl mx-auto px-4 ;
+  @apply mx-auto max-w-7xl px-4;
 }
 
 html {
   scroll-behavior: smooth;
 }
-
-
-
-
-
