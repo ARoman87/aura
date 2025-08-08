@@ -1,0 +1,17 @@
+{% assign text = 'Creative Power That Performs.,Creative Power That Performs.,Creative Power That Performs.' | split: ',' %}
+
+<div
+  class="flex overflow-hidden [--duration:100s] [--gap:1.5rem] md:[--gap:4rem] gap-[var(--gap)] text-white  md:pt-20 whitespace-nowrap font-oswald uppercase font-bold"
+>
+  {% for i in (1..3) %}
+    <div class="flex shrink-0 justify-around gap-[var(--gap)] animate-marquee">
+      {% for item in text %}
+        <div class="flex items-center gap-6 md:gap-14 text-9xl md:text-[200px]">
+          <span>
+            {{ item }}
+          </span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

@@ -1,3 +1,28 @@
-<div class="md:py-20 py-10">
-  <div class="container">Hero Section</div>
+<div class="md:py-20 py-10 h-screen bg-center bg-cover scale-x-[-1]" style="background-image: url('{{ 'hero.webp' | asset_url }});">
+  <div class="flex flex-col justify-end h-full scale-x-[-1] gap-4 md:gap-6">
+    <div class="flex justify-between md:flex-row flex-col items-center gap-2 container mb-4 md:mb-26">
+      <p class="title-main text-primary">Born From Hustle. Built for Impact</p>
+      <div class="title-main flex gap-1.5 items-center ">
+        <a href="https://www.instagram.com/auracreationsmarketing" target="_blank">Instagram</a>
+        <span>|</span>
+        <a href="https://www.facebook.com/profile.php?id=61566580146879" target="_blank">Facebook</a>
+        <span>|</span>
+        <a href="https://www.tiktok.com/@auracreationsmarketing" target="_blank">TikTok</a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/company/aura-creations-marketing/" target="_blank">LinkedIn</a>
+        <span>|</span>
+        <a href="https://www.youtube.com/channel/UCak-HiDtnCxLYir5NcLYS8g" target="_blank">YouTube</a>
+      </div>
+    </div>
+
+    <div class="container flex justify-center">
+      <a
+        href="/pages/about"
+        class="inline-block hover:bg-primary/70 transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-5 py-2 font-medium font-oswald uppercase"
+      >
+        Start Your Campaign
+      </a>
+    </div>
+    {% render 'hero-banner' %}
+  </div>
 </div>

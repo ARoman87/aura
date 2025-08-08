@@ -1,3 +1,206 @@
-<div class="md:py-20 py-10">
-  <div class="container">We Build Legacies Section</div>
+<div class="md:py-40 py-10  relative overflow-hidden">
+  <div
+    class="absolute inset-0 bg-center bg-cover opacity-30 z-0"
+    style="background-image: url('{{ 'aura-bg.webp' | asset_url }}');"
+  ></div>
+  <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black to-transparent z-10"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-10"></div>
+
+  <div class="container z-20 relative">
+    <div class="flex justify-center">
+      <h2 class=" text-center font-oswald font-bold text-4xl md:text-[58px] uppercase max-w-xl leading-none">
+        "We don't skip levels. We build legacies."
+      </h2>
+    </div>
+    <div class="flex justify-end gap-4 md:mt-0 mt-6">
+      <span
+        id="prevBtn"
+        class="md:h-16 w-12 h-12 md:w-16 flex items-center justify-center bg-white/20 text-xl md:text-3xl hover:bg-white/30 transition-colors duration-300 cursor-pointer"
+        ><i class="fa-regular fa-arrow-left"></i
+      ></span>
+      <span
+        id="nextBtn"
+        class="md:h-16 w-12 h-12 md:w-16 flex items-center justify-center bg-white/20 text-xl md:text-3xl hover:bg-white/30 transition-colors duration-300 cursor-pointer"
+        ><i class="fa-regular fa-arrow-right"></i
+      ></span>
+    </div>
+  </div>
+
+  <div class="z-10 relative md:mt-20">
+    <div class="flex justify-center items-center h-[400px] md:h-[450px] relative ">
+      <div id="carousel" class="relative w-full flex justify-center items-center">
+        <div class="carousel-item absolute w-[400px] h-[450px] transition-all duration-700 ease-out transform" data-index="0">
+          <div class="w-full h-full overflow-hidden">
+            <img src="{{ 'legacy1.webp' | asset_url }}" alt="Legacy Image" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="carousel-item absolute w-[400px] h-[450px] transition-all duration-700 ease-out transform" data-index="1">
+          <div class="w-full h-full overflow-hidden">
+            <img src="{{ 'legacy2.webp' | asset_url }}" alt="Legacy Image" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="carousel-item absolute w-[400px] h-[450px] transition-all duration-700 ease-out transform" data-index="2">
+          <div class="w-full h-full overflow-hidden">
+            <img src="{{ 'legacy3.webp' | asset_url }}" alt="Legacy Image" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<style>
+  .carousel-item.center {
+    transform: translateX(0) scale(1.2);
+    z-index: 30;
+    opacity: 1;
+  }
+  .carousel-item.left {
+    transform: translateX(-110%) scale(0.8);
+    z-index: 20;
+    opacity: 0.6;
+  }
+  .carousel-item.right {
+    transform: translateX(110%) scale(0.8);
+    z-index: 20;
+    opacity: 0.6;
+  }
+  .carousel-item.hidden {
+    transform: translateX(-120%) scale(0.75);
+    opacity: 0;
+    z-index: 10;
+  }
+  .carousel-item.hidden.right-hidden {
+    transform: translateX(120%) scale(0.75);
+  }
+
+  @media (max-width: 768px) {
+    .carousel-item {
+      width: 280px !important;
+      height: 350px !important;
+    }
+    .carousel-item.center {
+      transform: translateX(0) scale(1.1);
+    }
+    .carousel-item.left {
+      transform: translateX(-90%) scale(0.75);
+    }
+    .carousel-item.right {
+      transform: translateX(90%) scale(0.75);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel-item {
+      width: 250px !important;
+      height: 300px !important;
+    }
+    .carousel-item.left,
+    .carousel-item.right {
+      opacity: 0.3;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    class LegacyCarousel {
+      constructor() {
+        this.currentIndex = 1; // Start with middle image
+        this.items = document.querySelectorAll('.carousel-item');
+        this.totalItems = this.items.length;
+
+        this.init();
+      }
+
+      init() {
+        // Set up event listeners
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => this.prev());
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => this.next());
+        }
+
+        // Initial positioning
+        this.updateCarousel();
+
+        // Touch support for mobile
+        this.addTouchSupport();
+      }
+
+      updateCarousel() {
+        this.items.forEach((item, index) => {
+          // Remove all positioning classes
+          item.classList.remove('center', 'left', 'right', 'hidden', 'right-hidden');
+
+          if (index === this.currentIndex) {
+            item.classList.add('center');
+          } else if (index === (this.currentIndex - 1 + this.totalItems) % this.totalItems) {
+            item.classList.add('left');
+          } else if (index === (this.currentIndex + 1) % this.totalItems) {
+            item.classList.add('right');
+          } else {
+            item.classList.add('hidden');
+            // Determine direction for hidden items
+            const diff = (index - this.currentIndex + this.totalItems) % this.totalItems;
+            if (diff > this.totalItems / 2) {
+              // Keep default hidden (left side)
+            } else {
+              item.classList.add('right-hidden');
+            }
+          }
+        });
+      }
+
+      next() {
+        this.currentIndex = (this.currentIndex + 1) % this.totalItems;
+        this.updateCarousel();
+      }
+
+      prev() {
+        this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
+        this.updateCarousel();
+      }
+
+      addTouchSupport() {
+        let startX = 0;
+        let endX = 0;
+        const carousel = document.getElementById('carousel');
+
+        if (!carousel) return;
+
+        carousel.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+          endX = e.changedTouches[0].clientX;
+          const diff = startX - endX;
+
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+              this.next();
+            } else {
+              this.prev();
+            }
+          }
+        });
+
+        carousel.addEventListener(
+          'touchmove',
+          (e) => {
+            e.preventDefault();
+          },
+          { passive: false }
+        );
+      }
+    }
+
+    // Initialize carousel
+    new LegacyCarousel();
+  });
+</script>

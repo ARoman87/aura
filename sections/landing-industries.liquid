@@ -1,3 +1,179 @@
 <div class="md:py-20 py-10">
-  <div class="container">Industries We Serve</div>
+  <div class="container">
+    <div class="flex justify-center">
+      <h2 class="title-main">[ Industries We Serve ]</h2>
+    </div>
+
+    <!-- Scroll Stack Container -->
+    <div class="pb-40 relative md:block hidden" id="scroll-stack-container">
+      <div class="sticky top-10 h-[700px] flex items-center justify-center">
+        <div class="relative w-[670px] h-[600px]" id="stack-wrapper">
+          <!-- Image 1 - Your original styling -->
+          <div
+            class="stack-item absolute w-full h-full transition-all duration-700 ease-out"
+            data-index="0"
+            style="transform: translate(0, 0); z-index: 20;"
+          >
+            <div
+              class="h-[600px] w-[500px] lg:w-[670px] overflow-hidden bg-cover bg-center flex items-end"
+              style="background-image: url({{'industry1.webp' | asset_url}});"
+            >
+              <a href="/">
+                <div class="h-[150px] w-[400px] relative hover:scale-105 transition-all duration-300 bg-primary text-black p-6 flex flex-col gap-6">
+                  <div class="bg-white h-12 w-12 absolute top-0 text-2xl right-0 flex items-center justify-center">
+                    <i class="fa-regular fa-arrow-up-right"></i>
+                  </div>
+                  <h3 class="title-main text-xl">Aurora Spark For Real Estate</h3>
+                  <p class="text-sm">Lead funnels, local SEO, listing promotions</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Image 2 - Your original styling -->
+          <div
+            class="stack-item absolute w-full h-full transition-all duration-700 ease-out"
+            data-index="1"
+            style="transform: translate(40px, 40px); z-index: 19;"
+          >
+            <div
+              class="h-[600px] w-full md:w-[500px] lg:w-[670px] overflow-hidden bg-cover bg-center flex items-end"
+              style="background-image: url({{'industry2.webp' | asset_url}});"
+            >
+              <a href="/">
+                <div class="h-[150px] w-[400px] relative hover:scale-105 transition-all duration-300 bg-primary text-black p-6 flex flex-col gap-6">
+                  <div class="bg-white h-12 w-12 absolute top-0 text-2xl right-0 flex items-center justify-center">
+                    <i class="fa-regular fa-arrow-up-right"></i>
+                  </div>
+                  <h3 class="title-main text-xl">Aurora Spark For Real Estate</h3>
+                  <p class="text-sm">Lead funnels, local SEO, listing promotions</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="md:hidden flex flex-col gap-4 mt-10">
+      <div
+        class="h-[400px] w-full overflow-hidden bg-cover bg-center flex items-end"
+        style="background-image: url({{'industry1.webp' | asset_url}});"
+      >
+        <a href="/">
+          <div class="h-[100px] w-[300px] relative hover:scale-105 transition-all duration-300 bg-primary text-black p-4 flex flex-col gap-2">
+            <div class="bg-white h-8 w-8 absolute top-0  right-0 flex items-center justify-center">
+              <i class="fa-regular fa-arrow-up-right"></i>
+            </div>
+            <h3 class="title-main">Aurora Spark For Real Estate</h3>
+            <p class="text-xs">Lead funnels, local SEO, listing promotions</p>
+          </div>
+        </a>
+      </div>
+      <div
+        class="h-[400px] w-full overflow-hidden bg-cover bg-center flex items-end"
+        style="background-image: url({{'industry2.webp' | asset_url}});"
+      >
+        <a href="/">
+          <div class="h-[100px] w-[300px] relative hover:scale-105 transition-all duration-300 bg-primary text-black p-4 flex flex-col gap-2">
+            <div class="bg-white h-8 w-8 absolute top-0  right-0 flex items-center justify-center">
+              <i class="fa-regular fa-arrow-up-right"></i>
+            </div>
+            <h3 class="title-main">Aurora Spark For Real Estate</h3>
+            <p class="text-xs">Lead funnels, local SEO, listing promotions</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    class ScrollStack {
+      constructor() {
+        this.container = document.getElementById('scroll-stack-container');
+        this.stackItems = document.querySelectorAll('.stack-item');
+        this.totalItems = this.stackItems.length;
+
+        if (!this.container || this.stackItems.length === 0) return;
+
+        this.init();
+      }
+
+      init() {
+        this.setupScrollObserver();
+      }
+
+      setupScrollObserver() {
+        let ticking = false;
+
+        const handleScroll = () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              this.updateStack();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        this.updateStack();
+      }
+
+      updateStack() {
+        const containerRect = this.container.getBoundingClientRect();
+        const containerHeight = this.container.offsetHeight;
+        const windowHeight = window.innerHeight;
+
+        let scrollProgress = 0;
+
+        const triggerOffset = 250;
+
+        if (containerRect.top <= triggerOffset && containerRect.bottom >= windowHeight) {
+          scrollProgress = Math.abs(containerRect.top - triggerOffset) / (containerHeight - windowHeight + triggerOffset);
+          scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+        } else if (containerRect.top > triggerOffset) {
+          scrollProgress = 0;
+        } else {
+          scrollProgress = 1;
+        }
+
+        const itemProgress = scrollProgress * (this.totalItems - 1);
+        const activeIndex = Math.floor(itemProgress);
+        const itemScrollProgress = itemProgress - activeIndex;
+
+        this.updateItemPositions(activeIndex, itemScrollProgress);
+      }
+
+      updateItemPositions(activeIndex, progress) {
+        this.stackItems.forEach((item, index) => {
+          const itemIndex = parseInt(item.dataset.index);
+          let transform = '';
+          let zIndex = 20 - itemIndex;
+
+          if (itemIndex <= activeIndex) {
+            if (itemIndex === activeIndex) {
+              const offsetX = 40 * (itemIndex + 1) * (1 - progress);
+              const offsetY = 40 * (itemIndex + 1) * (1 - progress);
+              transform = `translate(${offsetX}px, ${offsetY}px)`;
+              zIndex = 20 + progress * 10;
+            } else {
+              transform = 'translate(0, 0)';
+              zIndex = 20 - (activeIndex - itemIndex);
+            }
+          } else {
+            const offsetX = 40 * (itemIndex + 1);
+            const offsetY = 40 * (itemIndex + 1);
+            transform = `translate(${offsetX}px, ${offsetY}px)`;
+          }
+
+          item.style.transform = transform;
+          item.style.zIndex = Math.round(zIndex);
+        });
+      }
+    }
+
+    new ScrollStack();
+  });
+</script>
