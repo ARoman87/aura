@@ -1,0 +1,55 @@
+{% assign blog = blogs.news %}
+<div>
+  <div class="bg-primary py-10 text-black">
+    <div class="container">
+      <div>
+        <img src="{{ 'aura-logo-black.png' | asset_url }}" alt="Aura Logo" class="mx-auto my-4 h-auto w-full">
+      </div>
+      <div class="pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        <div>
+          <h3 class="title-main text-2xl mb-4">Quick Links</h3>
+          <ul class="text-lg font-medium flex flex-col gap-2">
+            <li><a href="/services" class="hover:underline">Services</a></li>
+            <li><a href="/" class="hover:underline">Bundles</a></li>
+            <li><a href="/" class="hover:underline">Industries</a></li>
+            <li><a href="/contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="title-main text-2xl mb-4">Services</h3>
+          <ul class="text-lg font-medium flex flex-col gap-2">
+            <li><a href="/" class="hover:underline">Integrated Campaigns</a></li>
+            <li><a href="/" class="hover:underline">Content & Creative</a></li>
+            <li><a href="/" class="hover:underline">Lead Generation & Funnels</a></li>
+            <li><a href="/" class="hover:underline">Digital Presence</a></li>
+            <li><a href="/" class="hover:underline">Physical Product Design</a></li>
+            <li><a href="/" class="hover:underline">PR & Outreach</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="title-main text-2xl mb-4">Social Media</h3>
+          <ul class="text-lg font-medium flex flex-col gap-2">
+            <li><a href="/" class="hover:underline">Instagram</a></li>
+            <li><a href="/" class="hover:underline">LinkedIn</a></li>
+            <li><a href="/" class="hover:underline">Tiktok</a></li>
+            <li><a href="/" class="hover:underline">Youtube</a></li>
+            <li><a href="/" class="hover:underline">X</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="title-main text-2xl mb-4">Blogs</h3>
+          <ul class="text-lg font-medium flex flex-col gap-2">
+            {% for article in blog.articles %}
+              <li>
+                <a href="{{ article.url }}" class="hover:underline">{{ article.title | truncate: 20 }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center py-4">
+    <p class="font-oswald font-bold uppercase tracking-wider">&copy; {{ 'now' | date: '%Y' }} Aura. Powered by Launchpoint</p>
+  </div>
+</div>
