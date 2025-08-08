@@ -15,9 +15,53 @@
 }
 
 .container {
-  @apply mx-auto max-w-7xl px-4;
+  @apply mx-auto max-w-[1440px] px-4;
+}
+
+.title-main {
+  @apply font-oswald font-medium uppercase;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#mobile-slideout {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+#mobile-slideout::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, etc. */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) linear infinite;
+  will-change: transform;
 }

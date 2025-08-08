@@ -1,0 +1,50 @@
+<div class="md:py-20 py-10">
+  <div class="container">
+    <div>
+      <div class="flex gap-2 lg:gap-4 items-end">
+        <h2 class="md:text-7xl lg:text-8xl text-5xl xl:text-9xl font-oswald font-bold uppercase leading-none">Signature</h2>
+        <p class="bg-primary md:block hidden text-black px-1 lg:px-2 xl:px-4 py-2 mb-1 md:text-xs lg:text-sm font-oswald font-medium xl:text-lg uppercase">
+          Discover Which Aura Package is Right for You
+        </p>
+      </div>
+      <div>
+        <h2 class="md:text-7xl lg:text-8xl text-5xl xl:text-9xl font-oswald font-bold uppercase leading-none">Product Bundles</h2>
+      </div>
+      <p class="bg-primary md:hidden block text-center mt-4 text-black px-2 xl:px-4 py-2 mb-1 text-sm font-oswald font-medium xl:text-lg uppercase">
+        Discover Which Aura Package is Right for You
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 pt-10 md:pt-20">
+      {% render 'bundle-card',
+        title: 'Aura Campaign',
+        description: 'Full-service campaign design and execution',
+        cta: 'For brands seeking a done-for-you strategy + rollout'
+      %}
+      {% render 'bundle-card',
+        title: 'Aura Content',
+        description: 'Always-on content engine across social, email, and website.',
+        cta: 'For brands that need quality content, fast'
+      %}
+      {% render 'bundle-card',
+        title: 'Aura Lead',
+        description: 'Funnels, automations, and affiliate ecosystems',
+        cta: 'For those scaling lead gen'
+      %}
+      {% render 'bundle-card',
+        title: 'Aura Digital',
+        description: 'Full Service SEO, websites, and review management',
+        cta: 'For digital dominance'
+      %}
+      {% render 'bundle-card',
+        title: 'Aura Print',
+        description: 'Design for merch, packaging, and brand cohesion',
+        cta: 'For physical product brands with elevated taste'
+      %}
+      {% render 'bundle-card',
+        title: 'Aura Lead',
+        description: 'Full Service PR stunts, guerrilla tactics, viral playbooks',
+        cta: 'For bold brands looking to make headlines'
+      %}
+    </div>
+  </div>
+</div>

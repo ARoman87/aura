@@ -1,0 +1,39 @@
+{% assign text = 'Creativity Under Pressure,Strategic Planning,Integrity & Authenticity,Underdog Mentality,Relentless Execution'
+  | split: ','
+%}
+
+<div class="px-4">
+  <div class="max-w-[1440px] mx-auto relative">
+    <!-- Corner Borders -->
+    <span class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-primary z-20"></span>
+    <span class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-primary z-20"></span>
+    <span class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-primary z-20"></span>
+    <span class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-primary z-20"></span>
+
+    <!-- Fade overlays -->
+    <div class="absolute top-0 left-0 h-full w-10 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent"></div>
+    <div class="absolute top-0 right-0 h-full w-10 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent"></div>
+
+    <!-- Marquee Scrolling Content -->
+    <div
+      class="relative z-0 flex overflow-hidden [--duration:100s] [--gap:1.5rem] md:[--gap:2rem] gap-[var(--gap)] bg-background text-white py-3 md:py-4 whitespace-nowrap font-oswald uppercase font-bold"
+    >
+      {% for i in (1..5) %}
+        <div class="flex shrink-0 justify-around gap-[var(--gap)] animate-marquee">
+          {% for item in text %}
+            {% assign index = forloop.index0 | plus: 1 %}
+            <div class="flex items-center gap-6 md:gap-8 md:text-lg">
+              <span class="font-montserrat font-medium text-white/60 pt-0.5">
+                {{ index | prepend: '0' }}
+              </span>
+              <span>
+                {{ item }}
+              </span>
+              <i class="fa-light fa-pipe text-2xl"></i>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

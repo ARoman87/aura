@@ -1,0 +1,284 @@
+<div id="main-navbar" class="fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out">
+  <div class="px-4">
+    <div class="container max-w-full bg-white text-black rounded-full shadow-md mt-4">
+      <div class="flex items-center justify-end lg:justify-between py-3 px-4 relative">
+        <a href="/" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          ><img
+            src="{{ 'aura-logo-black.png' | asset_url }}"
+            alt="Aura Marketing Logo"
+            class="h-6"
+        ></a>
+
+        <!-- MENU -->
+        <ul class="lg:flex items-center hidden gap-6 lg:gap-4 xl:gap-6 text-xs uppercase font-bold">
+          <li>
+            <a
+              href="/"
+              class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/page/about"
+              class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+              >About</a
+            >
+          </li>
+
+          <li
+            class="relative"
+            @mouseenter="servicesDropdown = true"
+            @mouseleave="servicesDropdown = false"
+            x-data="{ servicesDropdown: false }"
+          >
+            <div class="flex items-center gap-2 cursor-pointer">
+              <div
+                class="relative inline-block"
+              >
+                Services
+              </div>
+              <i
+                class="fa-solid fa-plus transition-transform duration-300"
+                :class="{ 'rotate-45': servicesDropdown }"
+              ></i>
+            </div>
+            <div>
+              <ul
+                x-show="servicesDropdown"
+                x-cloak
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 translate-y-1"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-1"
+                class="absolute left-1/2 transform -translate-x-1/2 top-full z-50 text-black w-48"
+              >
+                <div class="bg-[#1e1e1e] text-white relative shadow-lg mt-2">
+                  <div class="bg-[#1e1e1e] h-3 w-3 rotate-45 absolute -top-1 left-1/2 transform -translate-x-1/2"></div>
+                  <span class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-primary z-20"></span>
+                  <span class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-primary z-20"></span>
+                  <span class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-primary z-20"></span>
+                  <span class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-primary z-20"></span>
+                  <div class="whitespace-nowrap">
+                    <div class="flex flex-col items-center gap-2 pt-4">
+                      <a
+                        href="/pages/services"
+                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                        >Service 1</a
+                      >
+                      <a
+                        href="/pages/services"
+                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                        >Service 2</a
+                      >
+                      <a
+                        href="/pages/services"
+                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                        >Service 3</a
+                      >
+                      <a
+                        href="/pages/services"
+                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                        >View All</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="lg:flex items-center hidden gap-6 lg:gap-4 xl:gap-6 text-xs uppercase font-bold">
+          <li>
+            <a
+              href="/pages/portfolio"
+              class="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+              >Portfolio</a
+            >
+          </li>
+
+          <li class="relative" @mouseenter="moreDropdown = true" @mouseleave="moreDropdown = false" x-data="{ moreDropdown: false }">
+            <div class="flex items-center gap-2 cursor-pointer">
+              <div
+                class="relative inline-block"
+              >
+                More
+              </div>
+              <i
+                class="fa-solid fa-plus transition-transform duration-300"
+                :class="{ 'rotate-45': moreDropdown }"
+              ></i>
+            </div>
+            <div>
+              <ul
+                x-show="moreDropdown"
+                x-cloak
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 translate-y-1"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-1"
+                class="absolute left-1/2 transform -translate-x-1/2 top-full z-50 text-black w-48"
+              >
+                <div class="bg-[#1e1e1e] text-white relative shadow-lg mt-2">
+                  <div class="bg-[#1e1e1e] h-3 w-3 rotate-45 absolute -top-1 left-1/2 transform -translate-x-1/2"></div>
+                  <span class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-primary z-20"></span>
+                  <span class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-primary z-20"></span>
+                  <span class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-primary z-20"></span>
+                  <span class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-primary z-20"></span>
+                  <div class="whitespace-nowrap">
+                    <div class="flex flex-col items-center gap-2 pt-4">
+                      <a
+                        href="/pages/services"
+                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                        >Blogs</a
+                      >
+                      <a
+                        href="/pages/services"
+                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                        >Offer</a
+                      >
+                      <a
+                        href="/pages/services"
+                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                        >Resources</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a
+              href="/pages/about"
+              class="inline-block hover:bg-primary/70 hover:text-black text-xs transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-3 py-2.5 font-bold font-montserrat uppercase"
+            >
+              Start Campaign
+            </a>
+          </li>
+        </ul>
+        <div class="lg:hidden flex items-center">
+          <button
+            class="relative h-8 w-8 focus:outline-none"
+            id="menu-toggle"
+            aria-label="Toggle menu"
+          >
+            <span class="sr-only">Open main menu</span>
+            <div class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform">
+              <span
+                class="line1 absolute block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out -translate-y-1.5"
+                aria-hidden="true"
+              ></span>
+              <span
+                class="line2 absolute block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+                aria-hidden="true"
+              ></span>
+              <span
+                class="line3 absolute block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out translate-y-1.5"
+                aria-hidden="true"
+              ></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Slide-Out Menu -->
+<div
+  id="mobile-slideout"
+  class="fixed right-0 top-0 z-40 h-full w-full bg-white  translate-x-full transition-transform duration-300 overflow-y-auto overflow-x-hidden overscroll-contain"
+>
+  <div class="flex flex-col justify-between h-full">
+    <div class="flex flex-col items-center gap-4 p-6 pt-40">
+      <a href="/about" class="py-2 text-lg">About</a>
+      <a href="/pages/services" class="py-2 text-lg">Services</a>
+      <a href="/pages/plans" class="py-2 text-lg">Plans</a>
+      <a href="/pages/locations" class="py-2 text-lg">Locations</a>
+
+      <a href="/pages/contact" class="py-2 text-lg">Contact</a>
+
+      <div x-data="{ aboutOpen: false }" @close-mobile-dropdown.window="aboutOpen = false" class="flex flex-col">
+        <button
+          @click="aboutOpen = !aboutOpen"
+          class="py-2 text-lg flex items-center justify-center gap-2"
+        >
+          <span>More</span>
+          <i
+            class="fa-solid fa-angle-down transition-transform duration-300 origin-center"
+            :class="{ 'rotate-180': aboutOpen }"
+          ></i>
+        </button>
+        <div
+          x-show="aboutOpen"
+          x-transition
+          class="mt-2 flex flex-col gap-2 border-l ml-6"
+        >
+          <a href="/pages/about" class="block py-1 ml-2">About</a>
+          <a href="/pages/franchise" class="block py-1 ml-2">Franchise</a>
+          <a href="/pages/blog" class="block py-1 ml-2">Blog</a>
+          <a href="/pages/brand-guidelines" class="block py-1 ml-2">Branding</a>
+          <a href="/pages/contact" class="block py-1 ml-2">Contact</a>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="inline-flex">button here</div>
+    </div>
+    <div class="flex flex-col items-center gap-4 pb-20">
+      <div class="flex justify-center text-primary">
+        <p>Questions? Text Us (725) 425-3583</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Menu toggle logic (unchanged)
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-slideout');
+    const line1 = toggle?.querySelector('.line1');
+    const line2 = toggle?.querySelector('.line2');
+    const line3 = toggle?.querySelector('.line3');
+
+    if (toggle && menu && line1 && line2 && line3) {
+      toggle.addEventListener('click', () => {
+        line1.classList.toggle('rotate-45');
+        line1.classList.toggle('-translate-y-1.5');
+        line2.classList.toggle('opacity-0');
+        line3.classList.toggle('-rotate-45');
+        line3.classList.toggle('translate-y-1.5');
+        menu.classList.toggle('translate-x-full');
+        menu.classList.toggle('translate-x-0');
+        document.body.classList.toggle('no-scroll');
+        window.dispatchEvent(new CustomEvent('close-mobile-dropdown'));
+      });
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('main-navbar');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScrollY && currentScroll > 100) {
+        // Scrolling down
+        navbar.classList.add('-translate-y-full');
+      } else {
+        // Scrolling up
+        navbar.classList.remove('-translate-y-full');
+      }
+
+      lastScrollY = currentScroll;
+    });
+  });
+</script>
