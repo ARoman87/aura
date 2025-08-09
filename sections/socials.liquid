@@ -1,45 +1,86 @@
 <div class="md:py-20 py-10">
-  <div class="container">Social Media Section</div>
-  <div class="w-full overflow-hiddenpy-8">
-    <div class="marquee-container">
-      <div class="marquee-content">
-        {% for block in section.blocks %}
-          {% if block.type == 'image' %}
-            <div class="flex-shrink-0 mx-4">
-              {% if block.settings.image %}
-                <img
-                  src="{{ block.settings.image | img_url: '440x440' }}"
-                  alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
-                  class="w-[440px] h-[440px] object-cover rounded-lg shadow-md"
-                  loading="lazy"
-                >
-              {% else %}
-                <div class="w-[440px] h-[440px] bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span class="text-gray-500">No Image</span>
-                </div>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
-        <!-- Duplicate content for seamless loop -->
-        {% for block in section.blocks %}
-          {% if block.type == 'image' %}
-            <div class="flex-shrink-0 mx-4">
-              {% if block.settings.image %}
-                <img
-                  src="{{ block.settings.image | img_url: '440x440' }}"
-                  alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
-                  class="w-[440px] h-[440px] object-cover rounded-lg shadow-md"
-                  loading="lazy"
-                >
-              {% else %}
-                <div class="w-[440px] h-[440px] bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span class="text-gray-500">No Image</span>
-                </div>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
+  <div class="container">
+    <div class="flex justify-center py-20">
+      <div class="title-main flex gap-1.5 items-center ">
+        <a
+          href="https://www.instagram.com/auracreationsmarketing"
+          class="hover:-translate-y-0.5 hover:text-primary transition-all"
+          target="_blank"
+          >Instagram</a
+        >
+        <span>|</span>
+        <a
+          href="https://www.facebook.com/profile.php?id=61566580146879"
+          class="hover:-translate-y-0.5 hover:text-primary transition-all"
+          target="_blank"
+          >Facebook</a
+        >
+        <span>|</span>
+        <a
+          href="https://www.tiktok.com/@auracreationsmarketing"
+          class="hover:-translate-y-0.5 hover:text-primary transition-all"
+          target="_blank"
+          >TikTok</a
+        >
+        <span>|</span>
+        <a
+          href="https://www.linkedin.com/company/aura-creations-marketing/"
+          class="hover:-translate-y-0.5 hover:text-primary transition-all"
+          target="_blank"
+          >LinkedIn</a
+        >
+        <span>|</span>
+        <a
+          href="https://www.youtube.com/channel/UCak-HiDtnCxLYir5NcLYS8g"
+          class="hover:-translate-y-0.5 hover:text-primary transition-all"
+          target="_blank"
+          >YouTube</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1800px] mx-auto">
+    <div class="w-full overflow-hidden py-8">
+      <div class="marquee-container">
+        <div class="marquee-content">
+          {% for block in section.blocks %}
+            {% if block.type == 'image' %}
+              <div class="flex-shrink-0 mx-2">
+                {% if block.settings.image %}
+                  <img
+                    src="{{ block.settings.image | img_url: '400x400' }}"
+                    alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
+                    class="w-[400px] h-[400px] object-cover shadow-md"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <div class="w-[400px] h-[400px] bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500">No Image</span>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+          <!-- Duplicate content for seamless loop -->
+          {% for block in section.blocks %}
+            {% if block.type == 'image' %}
+              <div class="flex-shrink-0 mx-2">
+                {% if block.settings.image %}
+                  <img
+                    src="{{ block.settings.image | img_url: '400x400' }}"
+                    alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
+                    class="w-[400px] h-[400px] object-cover shadow-md"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <div class="w-[400px] h-[400px] bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500">No Image</span>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>

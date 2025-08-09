@@ -75,16 +75,16 @@ html {
 
 .marquee-content {
   display: flex;
-  animation: marquee2 30s linear infinite;
   width: fit-content;
+  animation: marquee-ltr 60s linear infinite;
 }
 
-@keyframes marquee2 {
+@keyframes marquee-ltr {
   0% {
-    transform: translateX(0);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(0%);
   }
 }
 
