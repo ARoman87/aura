@@ -65,3 +65,30 @@ html {
   animation: marquee var(--duration) linear infinite;
   will-change: transform;
 }
+
+/* Marquee Carousel CSS */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee2 30s linear infinite;
+  width: fit-content;
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover (optional) */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}

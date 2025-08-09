@@ -1,0 +1,234 @@
+<div class="py-10 md:py-20">
+  <div class="container">
+    <div class="flex flex-col ">
+      <!-- INTEGRATED CAMPAIGNS -->
+      <div
+        class="border-t border-white/20 py-10 px-4"
+        x-data="{ open: true }"
+        :class="open ? 'bg-white/5' : ''"
+      >
+        <button
+          class="w-full flex justify-between items-center text-left cursor-pointer"
+          @click="open = !open"
+          :aria-expanded="open.toString()"
+        >
+          <div class="title-main flex items-center">
+            <div class="w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0 md:text-base text-xs">
+              <span>[ 01 ]</span>
+            </div>
+            <span class="text-xl md:text-4xl">Integrated Campaigns</span>
+          </div>
+          <span class="w-6 h-6 flex items-center justify-center">
+            <i
+              class="fa-solid fa-plus md:text-lg transition-transform duration-300"
+              :class="open ? 'rotate-45' : ''"
+            ></i>
+          </span>
+        </button>
+        <div
+          x-show="open"
+          x-transition:enter="transition-all ease-in-out duration-300"
+          x-transition:enter-start="opacity-0 max-h-0"
+          x-transition:enter-end="opacity-100 max-h-[800px]"
+          x-transition:leave="transition-all ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 max-h-[800px]"
+          x-transition:leave-end="opacity-0 max-h-0"
+          class="overflow-hidden flex pt-6"
+        >
+          <div class="sm:w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0"></div>
+          <div>{% render 'integrated-campaigns' %}</div>
+        </div>
+      </div>
+      <!-- CONTENT & CREATIVE -->
+      <div
+        class="border-t border-white/20 py-10 px-4"
+        x-data="{ open: false }"
+        :class="open ? 'bg-white/5' : ''"
+      >
+        <button
+          class="w-full flex justify-between items-center text-left cursor-pointer"
+          @click="open = !open"
+          :aria-expanded="open.toString()"
+        >
+          <div class="title-main flex items-center">
+            <div class="w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0 md:text-base text-xs">
+              <span>[ 02 ]</span>
+            </div>
+            <span class="text-xl md:text-4xl">Content & Creative</span>
+          </div>
+          <span class="w-6 h-6 flex items-center justify-center">
+            <i
+              class="fa-solid fa-plus md:text-lg transition-transform duration-300"
+              :class="open ? 'rotate-45' : ''"
+            ></i>
+          </span>
+        </button>
+        <div
+          x-show="open"
+          x-transition:enter="transition-all ease-in-out duration-300"
+          x-transition:enter-start="opacity-0 max-h-0"
+          x-transition:enter-end="opacity-100 max-h-[800px]"
+          x-transition:leave="transition-all ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 max-h-[800px]"
+          x-transition:leave-end="opacity-0 max-h-0"
+          class="overflow-hidden flex pt-6"
+        >
+          <div class="sm:w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0"></div>
+          <div>{% render 'content-creative' %}</div>
+        </div>
+      </div>
+      <!-- LEAD GENERATION & FUNNELS -->
+      <div
+        class="border-t border-white/20 py-10 px-4"
+        x-data="{ open: false }"
+        :class="open ? 'bg-white/5' : ''"
+      >
+        <button
+          class="w-full flex justify-between items-center text-left cursor-pointer"
+          @click="open = !open"
+          :aria-expanded="open.toString()"
+        >
+          <div class="title-main flex items-center">
+            <div class="w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0 md:text-base text-xs">
+              <span>[ 03 ]</span>
+            </div>
+            <span class="text-xl md:text-4xl">Lead Generation & Funnels</span>
+          </div>
+          <span class="w-6 h-6 flex items-center justify-center">
+            <i
+              class="fa-solid fa-plus md:text-lg transition-transform duration-300"
+              :class="open ? 'rotate-45' : ''"
+            ></i>
+          </span>
+        </button>
+        <div
+          x-show="open"
+          x-transition:enter="transition-all ease-in-out duration-300"
+          x-transition:enter-start="opacity-0 max-h-0"
+          x-transition:enter-end="opacity-100 max-h-[800px]"
+          x-transition:leave="transition-all ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 max-h-[800px]"
+          x-transition:leave-end="opacity-0 max-h-0"
+          class="overflow-hidden flex pt-6"
+        >
+          <div class="sm:w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0"></div>
+          <div>{% render 'lead-generation' %}</div>
+        </div>
+      </div>
+      <!-- DIGITAL PRESENCE -->
+      <div
+        class="border-t border-white/20 py-10 px-4"
+        x-data="{ open: false }"
+        :class="open ? 'bg-white/5' : ''"
+      >
+        <button
+          class="w-full flex justify-between items-center text-left cursor-pointer"
+          @click="open = !open"
+          :aria-expanded="open.toString()"
+        >
+          <div class="title-main flex items-center">
+            <div class="w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0 md:text-base text-xs">
+              <span>[ 04 ]</span>
+            </div>
+            <span class="text-xl md:text-4xl">Digital Presence</span>
+          </div>
+          <span class="w-6 h-6 flex items-center justify-center">
+            <i
+              class="fa-solid fa-plus md:text-lg transition-transform duration-300"
+              :class="open ? 'rotate-45' : ''"
+            ></i>
+          </span>
+        </button>
+        <div
+          x-show="open"
+          x-transition:enter="transition-all ease-in-out duration-300"
+          x-transition:enter-start="opacity-0 max-h-0"
+          x-transition:enter-end="opacity-100 max-h-[800px]"
+          x-transition:leave="transition-all ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 max-h-[800px]"
+          x-transition:leave-end="opacity-0 max-h-0"
+          class="overflow-hidden flex pt-6"
+        >
+          <div class="sm:w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0"></div>
+          <div>{% render 'digital-presence' %}</div>
+        </div>
+      </div>
+      <!-- PHYSICAL PRODUCT DESIGN -->
+      <div
+        class="border-t border-white/20 py-10 px-4"
+        x-data="{ open: false }"
+        :class="open ? 'bg-white/5' : ''"
+      >
+        <button
+          class="w-full flex justify-between items-center text-left cursor-pointer"
+          @click="open = !open"
+          :aria-expanded="open.toString()"
+        >
+          <div class="title-main flex items-center">
+            <div class="w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0 md:text-base text-xs">
+              <span>[ 05 ]</span>
+            </div>
+            <span class="text-xl md:text-4xl">Physical Product Design</span>
+          </div>
+          <span class="w-6 h-6 flex items-center justify-center">
+            <i
+              class="fa-solid fa-plus md:text-lg transition-transform duration-300"
+              :class="open ? 'rotate-45' : ''"
+            ></i>
+          </span>
+        </button>
+        <div
+          x-show="open"
+          x-transition:enter="transition-all ease-in-out duration-300"
+          x-transition:enter-start="opacity-0 max-h-0"
+          x-transition:enter-end="opacity-100 max-h-[800px]"
+          x-transition:leave="transition-all ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 max-h-[800px]"
+          x-transition:leave-end="opacity-0 max-h-0"
+          class="overflow-hidden flex pt-6"
+        >
+          <div class="sm:w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0"></div>
+          <div>{% render 'physical-product-design' %}</div>
+        </div>
+      </div>
+      <!-- PR & OUTREACH -->
+      <div
+        class="border-y border-white/20 py-10 px-4"
+        x-data="{ open: false }"
+        :class="open ? 'bg-white/5' : ''"
+      >
+        <button
+          class="w-full flex justify-between items-center text-left cursor-pointer"
+          @click="open = !open"
+          :aria-expanded="open.toString()"
+        >
+          <div class="title-main flex items-center">
+            <div class="w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0 md:text-base text-xs">
+              <span>[ 06 ]</span>
+            </div>
+            <span class="text-xl md:text-4xl">PR & Outreach</span>
+          </div>
+          <span class="w-6 h-6 flex items-center justify-center">
+            <i
+              class="fa-solid fa-plus md:text-lg transition-transform duration-300"
+              :class="open ? 'rotate-45' : ''"
+            ></i>
+          </span>
+        </button>
+        <div
+          x-show="open"
+          x-transition:enter="transition-all ease-in-out duration-300"
+          x-transition:enter-start="opacity-0 max-h-0"
+          x-transition:enter-end="opacity-100 max-h-[800px]"
+          x-transition:leave="transition-all ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 max-h-[800px]"
+          x-transition:leave-end="opacity-0 max-h-0"
+          class="overflow-hidden flex pt-6"
+        >
+          <div class="sm:w-[50px] md:w-[200px] lg:w-[300px] xl:w-[400px] flex-shrink-0"></div>
+          <div>{% render 'pr-outreach' %}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
