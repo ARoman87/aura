@@ -64,19 +64,19 @@
                   <div class="whitespace-nowrap">
                     <div class="flex flex-col items-center gap-2 pt-4">
                       <a
-                        href="/pages/services"
+                        href="/pages/ad-services"
                         class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
-                        >Service 1</a
+                        >Ads</a
                       >
                       <a
-                        href="/pages/services"
+                        href="/pages/content-services"
                         class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
-                        >Service 2</a
+                        >Content</a
                       >
                       <a
-                        href="/pages/services"
+                        href="/pages/copy-services"
                         class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
-                        >Service 3</a
+                        >Copy</a
                       >
                       <a
                         href="/pages/services"
@@ -142,11 +142,13 @@
                         class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
                         >Offer</a
                       >
-                      <a
-                        href="/pages/resources"
-                        class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
-                        >Resources</a
-                      >
+                      <!--
+                        <a
+                          href="/pages/resources"
+                          class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
+                          >Resources</a
+                        >
+                      -->
                       <a
                         href="/pages/contact"
                         class="hover:underline font-semibold py-4 text-center hover:bg-primary/70 hover:text-black transition-colors duration-300 w-full"
@@ -198,47 +200,66 @@
 <!-- Mobile Slide-Out Menu -->
 <div
   id="mobile-slideout"
-  class="fixed right-0 top-0 z-40 h-full w-full bg-white  translate-x-full transition-transform duration-300 overflow-y-auto overflow-x-hidden overscroll-contain"
+  class="fixed right-0 top-0 z-40 h-full w-full bg-background translate-x-full transition-transform duration-300 overflow-y-auto overflow-x-hidden overscroll-contain"
 >
   <div class="flex flex-col justify-between h-full">
     <div class="flex flex-col items-center gap-4 p-6 pt-40">
-      <a href="/about" class="py-2 text-lg">About</a>
-      <a href="/pages/services" class="py-2 text-lg">Services</a>
-      <a href="/pages/plans" class="py-2 text-lg">Plans</a>
-      <a href="/pages/locations" class="py-2 text-lg">Locations</a>
-
-      <a href="/pages/contact" class="py-2 text-lg">Contact</a>
-
-      <div x-data="{ aboutOpen: false }" @close-mobile-dropdown.window="aboutOpen = false" class="flex flex-col">
+      <a href="/" class="py-2 text-lg">Home</a>
+      <a href="/pages/about" class="py-2 text-lg">About</a>
+      <div x-data="{ servicesOpen: false }" @close-mobile-dropdown.window="servicesOpen = false" class="flex flex-col">
         <button
-          @click="aboutOpen = !aboutOpen"
+          @click="servicesOpen = !servicesOpen"
+          class="py-2 text-lg flex items-center justify-center gap-2"
+        >
+          <span>Services</span>
+          <i
+            class="fa-solid fa-angle-down transition-transform duration-300 origin-center"
+            :class="{ 'rotate-180': servicesOpen }"
+          ></i>
+        </button>
+        <div
+          x-show="servicesOpen"
+          x-transition
+          class="mt-2 flex flex-col gap-2 border-l ml-6"
+        >
+          <a href="/pages/ad-services" class="block py-1 ml-2">Ads</a>
+          <a href="/pages/content-services" class="block py-1 ml-2">Content</a>
+          <a href="/pages/copy-services" class="block py-1 ml-2">Copy</a>
+          <a href="/pages/services" class="block py-1 ml-2">View All</a>
+        </div>
+      </div>
+      <a href="/pages/portfolio" class="py-2 text-lg">Portfolio</a>
+
+      <div x-data="{ moreOpen: false }" @close-mobile-dropdown.window="moreOpen = false" class="flex flex-col">
+        <button
+          @click="moreOpen = !moreOpen"
           class="py-2 text-lg flex items-center justify-center gap-2"
         >
           <span>More</span>
           <i
             class="fa-solid fa-angle-down transition-transform duration-300 origin-center"
-            :class="{ 'rotate-180': aboutOpen }"
+            :class="{ 'rotate-180': moreOpen }"
           ></i>
         </button>
         <div
-          x-show="aboutOpen"
+          x-show="moreOpen"
           x-transition
           class="mt-2 flex flex-col gap-2 border-l ml-6"
         >
-          <a href="/pages/about" class="block py-1 ml-2">About</a>
-          <a href="/pages/franchise" class="block py-1 ml-2">Franchise</a>
-          <a href="/pages/blog" class="block py-1 ml-2">Blog</a>
-          <a href="/pages/brand-guidelines" class="block py-1 ml-2">Branding</a>
+          <a href="/blogs/news" class="block py-1 ml-2">Blogs</a>
+          <a href="/pages/offer" class="block py-1 ml-2">Offer</a>
           <a href="/pages/contact" class="block py-1 ml-2">Contact</a>
         </div>
       </div>
 
       <!-- CTA Button -->
-      <div class="inline-flex">button here</div>
-    </div>
-    <div class="flex flex-col items-center gap-4 pb-20">
-      <div class="flex justify-center text-primary">
-        <p>Questions? Text Us (725) 425-3583</p>
+      <div class="inline-flex">
+        <a
+          href="/pages/about"
+          class="inline-block hover:bg-primary/70 hover:text-black text-xs transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-3 py-2.5 font-bold font-montserrat uppercase"
+        >
+          Start Campaign
+        </a>
       </div>
     </div>
   </div>

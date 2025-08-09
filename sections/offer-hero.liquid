@@ -1,0 +1,55 @@
+<div class="md:pt-40 pt-20 pb-10 md:pb-20 relative md:h-[700px] lg:h-[800px] overflow-hidden">
+  <div
+    class="absolute inset-0 bg-center bg-cover opacity-30 z-0"
+    style="background-image: url('{{ 'aura-bg.webp' | asset_url }}');"
+  ></div>
+  <div class="top-0 flex justify-center items-center gap-20 absolute z-10 w-full h-full">
+    <img
+      src="{{ 'lp-logo.png' | asset_url }}"
+      alt="Launchpoint Logo"
+      class="w-1/2 md:w-1/3 h-auto object-contain"
+    >
+    <img
+      src="{{ 'aura-logo.png' | asset_url }}"
+      alt="Aura Logo"
+      class="w-1/2 md:w-1/3 h-auto object-contain"
+    >
+  </div>
+  <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black to-transparent z-20"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-20"></div>
+
+  <div class="container z-20 relative h-full">
+    <div class="flex flex-col justify-between h-full pt-20 lg:pt-24 items-center">
+      <div class="flex justify-center items-center flex-col gap-4 md:text-base text-sm">
+        <p class="flex gap-10 font-medium"><span>Offer Ends</span><span>August 20, 2025</span></p>
+        <h1 class=" text-center font-oswald font-bold text-6xl md:text-[12vw] lg:text-[150px] 2xl:text-[200px] uppercase leading-none">
+          Built To Work
+        </h1>
+        <p class="font-medium md:text-xl lg:text-[22px]">The System That Works While You Do</p>
+        <div class="flex items-center gap-4 md:gap-6">
+          <a
+            href="/pages/about"
+            class="inline-block hover:bg-primary/70 hover:text-black md:text-base text-sm transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-3 py-2.5 font-bold font-montserrat uppercase"
+          >
+            Book Now
+          </a>
+          <a
+            href="/pages/about"
+            class="inline-block hover:bg-primary/70 hover:text-black md:text-base text-sm transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-3 py-2.5 font-bold font-montserrat uppercase"
+          >
+            See What You'll Get
+          </a>
+        </div>
+      </div>
+      <div class="relative mt-10 md:mt-20">
+        <span class="absolute top-0 left-0 w-3 h-3 border-t-1 border-l-1 border-primary z-20"></span>
+        <span class="absolute bottom-0 left-0 w-3 h-3 border-b-1 border-l-1 border-primary z-20"></span>
+        <span class="absolute bottom-0 right-0 w-3 h-3 border-b-1 border-r-1 border-primary z-20"></span>
+        <span class="absolute top-0 right-0 w-3 h-3 border-t-1 border-r-1 border-primary z-20"></span>
+        <div class="bg-white/5 p-2 flex md:text-base text-sm">
+          <span class="bg-white/10 px-4 py-2">Act Fast, Only Taking 3 Clients At A Time!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
