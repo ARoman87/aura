@@ -1,0 +1,47 @@
+<div class="md:py-20 py-10">
+  <div class="container">
+    <div class="flex justify-center">
+      <h2 class="font-bold uppercase font-oswald text-3xl md:text-[58px]">Services Include</h2>
+    </div>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% render 'card',
+        title: 'Brand Strategy & Positioning',
+        description: "We help you own your space with messaging that reflects who you are and where you're going.",
+        icon: 'fa-bullseye-arrow'
+      %}
+      {% render 'card',
+        title: 'High-Impact Website Content',
+        description: 'Designed to rank. Written to convert. Built to connect.',
+        icon: 'fa-laptop-mobile'
+      %}
+      {% render 'card',
+        title: 'Email Marketing & Automation Copy',
+        description: 'From welcome flows to launches, we write with purpose (and track what works).',
+        icon: 'fa-filter'
+      %}
+      {% render 'card',
+        title: 'Social Media & Video Scripting',
+        description: 'Hooks that stop the scroll. Stories that spark action and calls to action that keep them coming back.',
+        icon: 'fa-video'
+      %}
+      {% render 'card',
+        title: 'Blog & Long-Form Content',
+        description: 'Educational, searchable, and built to grow trust over time.',
+        icon: 'fa-message-dots'
+      %}
+      {% render 'card',
+        title: 'Search Engine Optimization (On-page & Content)',
+        description: 'Because the right words in the right places make all the difference.',
+        icon: 'fa-align-left'
+      %}
+    </div>
+    <div class="flex justify-center mt-10 md:mt-20">
+      <a
+        href="/pages/about"
+        class="inline-block hover:bg-primary/70 transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-5 py-2 font-medium font-oswald uppercase"
+      >
+        Start Your Campaign
+      </a>
+    </div>
+  </div>
+</div>

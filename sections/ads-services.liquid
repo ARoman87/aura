@@ -1,0 +1,47 @@
+<div class="md:py-20 py-10">
+  <div class="container">
+    <div class="flex justify-center">
+      <h2 class="font-bold uppercase font-oswald text-3xl md:text-[58px]">Services Include</h2>
+    </div>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% render 'card',
+        title: 'Campaign Strategy & Execution',
+        description: 'We don’t throw darts. We plan with a mission at hand—and move fast',
+        icon: 'fa-bullseye-arrow'
+      %}
+      {% render 'card',
+        title: 'Paid Media Buying',
+        description: 'Targeted. Tracked. Built to work (Meta, Google, YouTube, etc.)',
+        icon: 'fa-laptop-mobile'
+      %}
+      {% render 'card',
+        title: 'Funnel Development',
+        description: 'Lead magnets, landing pages, and automated flows designed to guide action.',
+        icon: 'fa-filter'
+      %}
+      {% render 'card',
+        title: 'Email & SMS Automation',
+        description: 'Timely follow-up and nurture flows that never drop the ball.',
+        icon: 'fa-message-dots'
+      %}
+      {% render 'card',
+        title: 'Influencer & Affiliate Program Management',
+        description: 'We help you build partnerships that scale trust and visibility.',
+        icon: 'fa-user-group'
+      %}
+      {% render 'card',
+        title: 'Promotional & Event Marketing',
+        description: 'On-the-ground or online, we make your brand the main event.',
+        icon: 'fa-images'
+      %}
+    </div>
+    <div class="flex justify-center mt-10 md:mt-20">
+      <a
+        href="/pages/about"
+        class="inline-block hover:bg-primary/70 transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-5 py-2 font-medium font-oswald uppercase"
+      >
+        Start Your Campaign
+      </a>
+    </div>
+  </div>
+</div>

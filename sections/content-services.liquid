@@ -1,0 +1,57 @@
+<div class="md:py-20 py-10">
+  <div class="container">
+    <div class="flex justify-center">
+      <h2 class="font-bold uppercase font-oswald text-3xl md:text-[58px]">Services Include</h2>
+    </div>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% render 'card',
+        title: 'Content Creation',
+        description: 'Across every platform, every format built for consistency, delivered with purpose.',
+        icon: 'fa-images'
+      %}
+      {% render 'card',
+        title: 'Video Production & Marketing',
+        description: 'Full-scale shoots or short form reels, always rooted in story and built for impact.',
+        icon: 'fa-video'
+      %}
+      {% render 'card',
+        title: 'Graphic & Creative Design',
+        description: 'Visuals that align with your brand and raise the bar.',
+        icon: 'fa-palette'
+      %}
+      {% render 'card',
+        title: 'Website Design & Development',
+        description: 'Your website should be more than a portfolio it should be your hardest-working salesperson. We build it that way.',
+        icon: 'fa-laptop-mobile'
+      %}
+      {% render 'card',
+        title: 'Packaging Design',
+        description: 'From labels to unboxing, experiences that make people remember you.',
+        icon: 'fa-box'
+      %}
+      {% render 'card',
+        title: 'Merch Design',
+        description: 'T-shirts, hats, mugs, totes custom, cohesive, and always on brand.',
+        icon: 'fa-shirt'
+      %}
+      {% render 'card',
+        title: 'Influencer & Affiliate Content Kits',
+        description: 'Equip your partners with ready-to-share creative that amplifies reach.',
+        icon: 'fa-user-group'
+      %}
+      {% render 'card',
+        title: 'Brand Consistency Across Channels:',
+        description: 'Everything matches. Everything matters. Every time',
+        icon: 'fa-bullseye-arrow'
+      %}
+    </div>
+    <div class="flex justify-center mt-10 md:mt-20">
+      <a
+        href="/pages/about"
+        class="inline-block hover:bg-primary/70 transition-all duration-300 bg-primary hover:-translate-y-0.5 text-black px-5 py-2 font-medium font-oswald uppercase"
+      >
+        Start Your Campaign
+      </a>
+    </div>
+  </div>
+</div>
