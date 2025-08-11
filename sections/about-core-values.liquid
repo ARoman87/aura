@@ -1,0 +1,40 @@
+<div class="md:py-20 py-10">
+  <div class="container">
+    <div class="flex justify-center">
+      <h2 class="font-bold uppercase font-oswald text-3xl md:text-[58px]">Our Core Values</h2>
+    </div>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% render 'card',
+        title: 'Creativity Under Pressure',
+        description: 'We thrive in tough situations, using limited resources to create standout results.',
+        icon: 'fa-fire'
+      %}
+      {% render 'card',
+        title: 'Aura Content',
+        description: "We're in the details, on the ground, and better than expected.",
+        icon: 'fa-desktop'
+      %}
+      {% render 'card',
+        title: 'Integrity Above All',
+        description: 'No shortcuts. No compromises. We Grow Brands Without Breaking Their True Voice.',
+        icon: 'fa-chart-line-up'
+      %}
+      {%
+        render 'card',
+        title: 'Relentless Improvement',
+        description: 'Every setback is a setup. We're here to get better, every day.',
+        icon: 'fa-clock-rotate-left'
+      %}
+      {% render 'card',
+        title: 'Authenticity in Action',
+        description: 'We walk it like we talk it—our values show up in our work.',
+        icon: 'fa-stars'
+      %}
+      {% render 'card',
+        title: 'Underdog Mentality',
+        description: "We've fought for every win. That grit? It never leaves.",
+        icon: 'fa-party-horn'
+      %}
+    </div>
+  </div>
+</div>
