@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-black: #000;
@@ -1216,6 +1215,9 @@
   .bg-\[\#1e1e1e\] {
     background-color: #1e1e1e;
   }
+  .bg-\[\#D4FF3AB2\] {
+    background-color: #D4FF3AB2;
+  }
   .bg-background {
     background-color: var(--color-background);
   }
@@ -1381,9 +1383,6 @@
   }
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
-  }
-  .py-40 {
-    padding-block: calc(var(--spacing) * 40);
   }
   .pt-0\.5 {
     padding-top: calc(var(--spacing) * 0.5);
@@ -1706,6 +1705,15 @@
       transition-duration: 300ms;
     }
   }
+  .hover\:-translate-0\.5 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-x: calc(var(--spacing) * -0.5);
+        --tw-translate-y: calc(var(--spacing) * -0.5);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
   .hover\:-translate-y-0\.5 {
     &:hover {
       @media (hover: hover) {
@@ -1728,6 +1736,13 @@
     &:hover {
       @media (hover: hover) {
         scale: 1.02;
+      }
+    }
+  }
+  .hover\:bg-\[\#D4FF3AB2\]\/70 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #D4FF3AB2 70%, transparent);
       }
     }
   }
@@ -2289,11 +2304,6 @@
       font-size: 12vw;
     }
   }
-  .md\:text-\[16vw\] {
-    @media (width >= 48rem) {
-      font-size: 16vw;
-    }
-  }
   .md\:text-\[20vw\] {
     @media (width >= 48rem) {
       font-size: 20vw;
@@ -2588,11 +2598,6 @@
       font-size: 250px;
     }
   }
-  .xl\:text-\[300px\] {
-    @media (width >= 80rem) {
-      font-size: 300px;
-    }
-  }
   .xl\:text-\[325px\] {
     @media (width >= 80rem) {
       font-size: 325px;
@@ -2601,11 +2606,6 @@
   .\32 xl\:text-\[200px\] {
     @media (width >= 96rem) {
       font-size: 200px;
-    }
-  }
-  .\32 xl\:text-\[300px\] {
-    @media (width >= 96rem) {
-      font-size: 300px;
     }
   }
 }
