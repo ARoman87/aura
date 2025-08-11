@@ -10,7 +10,7 @@
         <div class="relative w-[670px] h-[600px]" id="stack-wrapper">
           <!-- Image 1 - Your original styling -->
           <div
-            class="stack-item absolute w-full h-full transition-all duration-700 ease-out"
+            class="stack-item absolute w-full h-full transition-all duration-700 ease-in-out"
             data-index="0"
             style="transform: translate(0, 0); z-index: 20;"
           >
@@ -32,9 +32,9 @@
 
           <!-- Image 2 - Your original styling -->
           <div
-            class="stack-item absolute w-full h-full transition-all duration-700 ease-out"
+            class="stack-item absolute w-full h-full transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)"
             data-index="1"
-            style="transform: translate(40px, 40px); z-index: 19;"
+            style="transform: translate(20px, 20px); z-index: 19;"
           >
             <div
               class="h-[600px] w-full md:w-[500px] lg:w-[670px] overflow-hidden bg-cover bg-center flex items-end"
@@ -51,7 +51,42 @@
               </a>
             </div>
           </div>
+          <!-- Image 3 - Your original styling -->
+          <!--
+            <div
+              class="stack-item absolute w-full h-full transition-all duration-700 ease-in-out"
+              data-index="2"
+              style="transform: translate(40px, 40px); z-index: 18;"
+            >
+              <div
+                class="h-[600px] w-[500px] lg:w-[670px] overflow-hidden bg-cover bg-center flex items-end"
+                style="background-image: url({{'industry1.webp' | asset_url}});"
+              >
+                <a href="/">
+                  <div class="h-[150px] w-[400px] relative hover:scale-105 transition-all duration-300 bg-primary text-black p-6 flex flex-col gap-6">
+                    <div class="bg-white h-12 w-12 absolute top-0 text-2xl right-0 flex items-center justify-center">
+                      <i class="fa-regular fa-arrow-up-right"></i>
+                    </div>
+                    <h3 class="title-main text-xl">Aurora Spark For Real Estate</h3>
+                    <p class="text-sm">Lead funnels, local SEO, listing promotions</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          -->
         </div>
+      </div>
+      <div class="md:flex justify-end gap-4 md:mt-0 mt-6 hidden">
+        <span
+          id="prevBtn-2"
+          class="md:h-16 w-12 h-12 md:w-16 flex items-center justify-center bg-white/20 text-xl md:text-3xl hover:bg-white/30 transition-colors duration-300 cursor-pointer"
+          ><i class="fa-regular fa-arrow-left"></i
+        ></span>
+        <span
+          id="nextBtn-2"
+          class="md:h-16 w-12 h-12 md:w-16 flex items-center justify-center bg-white/20 text-xl md:text-3xl hover:bg-white/30 transition-colors duration-300 cursor-pointer"
+          ><i class="fa-regular fa-arrow-right"></i
+        ></span>
       </div>
     </div>
     <div class="md:hidden flex flex-col gap-4 mt-10">
@@ -88,92 +123,113 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    class ScrollStack {
-      constructor() {
-        this.container = document.getElementById('scroll-stack-container');
-        this.stackItems = document.querySelectorAll('.stack-item');
-        this.totalItems = this.stackItems.length;
+  (function () {
+    function setupStack(root = document) {
+      const stackItems = Array.from(root.querySelectorAll('#scroll-stack-container .stack-item'));
+      const prevBtn = root.getElementById('prevBtn-2');
+      const nextBtn = root.getElementById('nextBtn-2');
+      if (!stackItems.length || !prevBtn || !nextBtn) return;
 
-        if (!this.container || this.stackItems.length === 0) return;
+      if (prevBtn.__bound || nextBtn.__bound) return;
+      prevBtn.__bound = nextBtn.__bound = true;
 
-        this.init();
-      }
+      const N = stackItems.length;
+      const SPACING = 40;
+      const MAX_FRONT_Z = 999;
+      const TRANSITION_MS = 700; // match your Tailwind duration-700
 
-      init() {
-        this.setupScrollObserver();
-      }
+      // Force clean indices 0..N-1 and clear any inline transforms
+      stackItems.forEach((el, i) => {
+        el.dataset.index = String(i);
+        el.style.transform = '';
+        el.style.zIndex = '';
+        el.style.backfaceVisibility = 'hidden';
+        el.style.willChange = 'transform';
+      });
 
-      setupScrollObserver() {
-        let ticking = false;
+      let activeIndex = 0;
+      layout(activeIndex, null);
 
-        const handleScroll = () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              this.updateStack();
-              ticking = false;
-            });
-            ticking = true;
-          }
-        };
+      prevBtn.addEventListener('click', () => {
+        const next = (activeIndex - 1 + N) % N;
+        layout(next, activeIndex);
+        activeIndex = next;
+      });
 
-        window.addEventListener('scroll', handleScroll);
-        this.updateStack();
-      }
+      nextBtn.addEventListener('click', () => {
+        const next = (activeIndex + 1) % N;
+        layout(next, activeIndex);
+        activeIndex = next;
+      });
 
-      updateStack() {
-        const containerRect = this.container.getBoundingClientRect();
-        const containerHeight = this.container.offsetHeight;
-        const windowHeight = window.innerHeight;
-
-        let scrollProgress = 0;
-
-        const triggerOffset = 250;
-
-        if (containerRect.top <= triggerOffset && containerRect.bottom >= windowHeight) {
-          scrollProgress = Math.abs(containerRect.top - triggerOffset) / (containerHeight - windowHeight + triggerOffset);
-          scrollProgress = Math.max(0, Math.min(1, scrollProgress));
-        } else if (containerRect.top > triggerOffset) {
-          scrollProgress = 0;
-        } else {
-          scrollProgress = 1;
+      root.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          const next = (activeIndex - 1 + N) % N;
+          layout(next, activeIndex);
+          activeIndex = next;
+        } else if (e.key === 'ArrowRight') {
+          const next = (activeIndex + 1) % N;
+          layout(next, activeIndex);
+          activeIndex = next;
         }
+      });
 
-        const itemProgress = scrollProgress * (this.totalItems - 1);
-        const activeIndex = Math.floor(itemProgress);
-        const itemScrollProgress = itemProgress - activeIndex;
+      function layout(nextActive, prevActive) {
+        stackItems.forEach((el) => {
+          const i = parseInt(el.dataset.index, 10);
+          const rank = (i - nextActive + N) % N; // 0=front, 1,2,... behind
+          const x = SPACING * rank;
+          const y = SPACING * rank;
 
-        this.updateItemPositions(activeIndex, itemScrollProgress);
-      }
+          const scale = rank === 0 ? 1 : 0.995 - (rank - 1) * 0.005;
+          const opacity = rank === 0 ? 1 : 0.98 - (rank - 1) * 0.02;
 
-      updateItemPositions(activeIndex, progress) {
-        this.stackItems.forEach((item, index) => {
-          const itemIndex = parseInt(item.dataset.index);
-          let transform = '';
-          let zIndex = 20 - itemIndex;
-
-          if (itemIndex <= activeIndex) {
-            if (itemIndex === activeIndex) {
-              const offsetX = 40 * (itemIndex + 1) * (1 - progress);
-              const offsetY = 40 * (itemIndex + 1) * (1 - progress);
-              transform = `translate(${offsetX}px, ${offsetY}px)`;
-              zIndex = 20 + progress * 10;
-            } else {
-              transform = 'translate(0, 0)';
-              zIndex = 20 - (activeIndex - itemIndex);
-            }
+          // z-index strategy:
+          // - Incoming front gets MAX_FRONT_Z
+          // - Previous front holds MAX_FRONT_Z-1 during motion, then drops after transition
+          // - Others are below, ordered by rank
+          if (i === nextActive) {
+            el.style.zIndex = String(MAX_FRONT_Z);
+          } else if (prevActive != null && i === prevActive) {
+            el.style.zIndex = String(MAX_FRONT_Z - 1);
           } else {
-            const offsetX = 40 * (itemIndex + 1);
-            const offsetY = 40 * (itemIndex + 1);
-            transform = `translate(${offsetX}px, ${offsetY}px)`;
+            el.style.zIndex = String(200 - rank);
           }
 
-          item.style.transform = transform;
-          item.style.zIndex = Math.round(zIndex);
+          // Promote animation on incoming
+          if (prevActive != null && i === nextActive) {
+            // force reflow
+            el.getBoundingClientRect();
+            el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale + 0.02})`;
+            el.style.filter = 'drop-shadow(0 12px 24px rgba(0,0,0,0.35))';
+            el.style.opacity = String(opacity);
+            setTimeout(() => {
+              el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+            }, 120);
+          } else {
+            el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+            el.style.filter = rank === 0 ? 'drop-shadow(0 12px 24px rgba(0,0,0,0.35))' : '';
+            el.style.opacity = String(opacity);
+          }
         });
+
+        // After the movement completes, drop the previous card's z-index to its rank level.
+        if (prevActive != null) {
+          const prevEl = stackItems[prevActive];
+          const rankPrev = (prevActive - nextActive + N) % N;
+          setTimeout(() => {
+            if (!prevEl) return;
+            prevEl.style.zIndex = String(200 - rankPrev);
+          }, TRANSITION_MS);
+        }
       }
     }
 
-    new ScrollStack();
-  });
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setupStack());
+    } else {
+      setupStack();
+    }
+    document.addEventListener('shopify:section:load', (e) => setupStack(e.target));
+  })();
 </script>

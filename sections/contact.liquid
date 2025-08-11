@@ -1,5 +1,11 @@
-<div class="md:pt-40 pt-20 md:pb-20 pb-10">
-  <div class="container">
+<div class="md:pt-40 pt-20 pb-10 relative">
+  <div
+    class="absolute inset-0 bg-center bg-cover opacity-30 z-0"
+    style="background-image: url('{{ 'aura-bg.webp' | asset_url }}');"
+  ></div>
+  <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black to-transparent z-10"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-10"></div>
+  <div class="container z-20 relative">
     <div class="md:pt-0 pt-10">
       <div class="font-oswald font-bold text-6xl md:text-8xl lg:text-[150px] xl:text-[200px] flex items-center justify-center gap-2 md:gap-4 uppercase">
         <h1>Contact</h1>
@@ -15,6 +21,13 @@
         <a href="tel:+12088768328" class="underline hover:-translate-y-0.5 transition-all duration-300">(208)-876-8328</a>
         <span>Boise, Idaho</span>
       </div>
+    </div>
+    <div class="mt-10 md:mt-20">
+      <div
+        class="calendly-inline-widget h-[830px] md:h-[700px]"
+        data-url="https://calendly.com/luis-auracreationsmarketing/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=000000&primary_color=224b96"
+      ></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </div>
   </div>
 </div>
