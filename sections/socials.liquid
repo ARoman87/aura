@@ -47,12 +47,14 @@
             {% if block.type == 'image' %}
               <div class="flex-shrink-0 mx-2">
                 {% if block.settings.image %}
-                  <img
-                    src="{{ block.settings.image | img_url: '400x400' }}"
-                    alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
-                    class="w-[200px] md:w-[400px] h-[200px] md:h-[400px] object-cover shadow-md"
-                    loading="lazy"
-                  >
+                  <a href="{{ block.settings.link | default: 'https://www.instagram.com/auracreationsmarketing' }}" target="_blank">
+                    <img
+                      src="{{ block.settings.image | img_url: '400x400' }}"
+                      alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
+                      class="w-[200px] md:w-[400px] h-[200px] md:h-[400px] object-cover shadow-md"
+                      loading="lazy"
+                    >
+                  </a>
                 {% else %}
                   <div class="w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-gray-200 flex items-center justify-center">
                     <span class="text-gray-500">No Image</span>
@@ -66,12 +68,14 @@
             {% if block.type == 'image' %}
               <div class="flex-shrink-0 mx-2">
                 {% if block.settings.image %}
-                  <img
-                    src="{{ block.settings.image | img_url: '400x400' }}"
-                    alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
-                    class="w-[200px] md:w-[400px] h-[200px] md:h-[400px] object-cover shadow-md"
-                    loading="lazy"
-                  >
+                  <a href="{{ block.settings.link | default: 'https://www.instagram.com/auracreationsmarketing' }}" target="_blank">
+                    <img
+                      src="{{ block.settings.image | img_url: '400x400' }}"
+                      alt="{{ block.settings.image.alt | default: 'Carousel Image' }}"
+                      class="w-[200px] md:w-[400px] h-[200px] md:h-[400px] object-cover shadow-md"
+                      loading="lazy"
+                    >
+                  </a>
                 {% else %}
                   <div class="w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-gray-200 flex items-center justify-center">
                     <span class="text-gray-500">No Image</span>
@@ -106,6 +110,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Image Link"
         }
       ]
     }
