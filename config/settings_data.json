@@ -56,25 +56,43 @@
           "image_NUbLiq": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/7350ab3cc159af4aa52fab6a42f87b8d7d0acf84.jpg"
+              "image": "shopify://shop_images/Screenshot_2025-08-26_at_10.15.10_AM.png",
+              "link": "https://www.instagram.com/reel/DJpWKbXz3TE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
             }
           },
           "image_LYXUVd": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/5ff90b2e872c908d2b22b1f65a534ef9a62f497c.jpg"
+              "image": "shopify://shop_images/Screenshot_2025-08-26_at_10.15.38_AM.png",
+              "link": "https://www.instagram.com/reel/DMGuXaGSk4l/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
             }
           },
           "image_8QhCzd": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/162e1db6ed64b4f6ade2b3941fee4963f5da4554.jpg"
+              "image": "shopify://shop_images/Screenshot_2025-08-26_at_10.16.33_AM.png",
+              "link": ""
             }
           },
           "image_a9zCaJ": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/63cd2f884337a3989da2ad5d5154c86ec5549d03.jpg"
+              "image": "shopify://shop_images/Screenshot_2025-08-26_at_10.14.53_AM.png",
+              "link": "https://www.instagram.com/reel/DLqmfsVyjVt/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+            }
+          },
+          "image_VCgpeb": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Screenshot_2025-08-26_at_10.14.23_AM.png",
+              "link": "https://www.instagram.com/reel/DMYxVAIy0w6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+            }
+          },
+          "image_BPW8fF": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Screenshot_2025-08-26_at_10.15.00_AM.png",
+              "link": ""
             }
           }
         },
@@ -82,7 +100,9 @@
           "image_NUbLiq",
           "image_LYXUVd",
           "image_8QhCzd",
-          "image_a9zCaJ"
+          "image_a9zCaJ",
+          "image_VCgpeb",
+          "image_BPW8fF"
         ],
         "settings": {
           "heading": "Image Carousel"
